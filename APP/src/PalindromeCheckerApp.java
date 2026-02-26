@@ -1,14 +1,26 @@
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String word = "wowzie";
-        String reversed = "";
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed = reversed + word.charAt(i);
-        }
-        if (word.equals(reversed)) {
-            System.out.println("The word \"" + word + "\" is a Palindrome.");
+        String input = "radar";
+        System.out.println("Input String: " + input);
+        if (isPalindrome(input)) {
+            System.out.println("Result: It is a palindrome.");
         } else {
-            System.out.println("The word \"" + word + "\" is NOT a Palindrome.");
+            System.out.println("Result: It is not a palindrome.");
         }
+    }
+    public static boolean isPalindrome(String str) {
+        char[] charArray = str.toCharArray();
+        int left = 0;
+        int right = charArray.length - 1;
+        while (left < right) {
+            if (charArray[left] != charArray[right]) {
+                return false; // Not a palindrome
+            }
+            left++;
+            right--;
+        }
+
+        return true;
+
     }
 }
